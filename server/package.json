@@ -1,0 +1,25 @@
+{
+	"name": "server",
+	"version": "1.0.0",
+	"description": "",
+	"main": "src/index.js",
+	"scripts": {
+		"start": "node src/index.js",
+		"dev": "nodemon src/index.js",
+		"lint": "eslint src/index.js"
+	},
+	"author": "Cory Kelley",
+	"license": "MIT",
+	"dependencies": {
+		"cors": "^2.8.5",
+		"dotenv": "^8.2.0",
+		"express": "^4.17.1",
+		"helmet": "^3.22.0",
+		"mongoose": "^5.9.14",
+		"morgan": "^1.10.0"
+	},
+	"devDependencies": {
+		"eslint": "^7.0.0",
+		"nodemon": "^2.0.4"
+	}
+}
