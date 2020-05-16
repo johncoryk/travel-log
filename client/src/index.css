@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@400;700&display=swap');
+
+body {
+	margin: 0;
+	font-family: 'PT Sans Narrow', sans-serif;
+	width: 100vw;
+	height: 100vh;
+	overflow: hidden;
+}
+
+.mapMarker {
+	fill: #cb4f25;
+	stroke: #eee;
+	transform: translate(-50%, -100%);
+}
+.mapEntryMarker {
+	fill: #3a4ca6;
+	stroke: #eee;
+	transform: translate(-50%, -100%);
+}
+
+.popup {
+	width: 40vw;
+	color: #454545;
+	padding: 1rem;
+}
+
+.entryForm label,
+.entryForm input,
+.entryForm textarea,
+.entryForm button {
+	font-size: 1.2rem;
+	margin: 0.5rem auto;
+	display: block;
+	width: 100%;
+}
+
+.entryForm button {
+	background-color: none;
+	border: #454545 1px solid;
+	transition: all ease 200ms;
+}
+
+.entryForm button:hover {
+	background-color: #454545;
+	border: #fff solid 1px;
+	color: #fff;
+	cursor: pointer;
+}
+
+.error {
+	color: #cb4f25;
+}

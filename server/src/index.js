@@ -6,10 +6,12 @@ const mongoose = require('mongoose');
 
 require('dotenv').config();
 
-const { notFound, errorHandler } = require('./middlewares');
+const middlewares = require('./middlewares');
 const logs = require('./api/logs');
 
 const app = express();
+
+app.use(cors());
 
 mongoose.connect(process.env.DATABASE_URL, {
 	useNewUrlParser: true,
@@ -18,15 +20,14 @@ mongoose.connect(process.env.DATABASE_URL, {
 
 app.use(morgan('common'));
 app.use(helmet());
-app.use(
-	cors({
-		origin: process.env.CORS_ORIGIN,
-	})
-);
-
+// app.use(
+// 	cors({
+// 		origin: process.env.CORS_ORIGIN,
+// 	})
+// );
 app.use(express.json());
 
-app.get('/', (req, res) => {
+app.get('/', cors, (req, res) => {
 	res.json({
 		message: 'Hello World!',
 	});
@@ -34,10 +35,10 @@ app.get('/', (req, res) => {
 
 app.use('/api/logs', logs);
 
-app.use(notFound);
-app.use(errorHandler);
+app.use(middlewares.notFound);
+app.use(middlewares.errorHandler);
 
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 1337;
 app.listen(port, () => {
-	console.log(`Listening on port ${port}`);
+	console.log(`Listening at http://localhost:${port}`);
 });
